@@ -1,0 +1,49 @@
+<html>
+
+<body>
+
+    <input type="number" placeholder="Enter number of inputs: " id="input">
+    <div id="inputs" style="display: grid; grid-template-columns: repeat(1,230px);">
+
+    </div>
+    <button id="btn">Result</button>
+    <h1 id="result" style="color: red;"></h1>
+
+    <script>
+
+        const getId = (id) => {
+            const res = document.getElementById(id);
+            return res;
+        }
+       document.getElementById('input').addEventListener('keyup',()=>{
+            const input = getId('input').value;
+
+           const inputs = getId('inputs');
+           for (let i = 1; i <= input; i++) {
+               const input = document.createElement('input');
+               input.setAttribute('id',i);
+               input.setAttribute('class','inputs')
+               input.placeholder = `Enter number: ${i}`;
+               inputs.appendChild(input);
+           }
+       })
+
+       document.getElementById('btn').addEventListener('click',()=>{
+        const array = [];
+           const input = getId('input').value;
+
+           for (let i = 1; i <= input; i++) {
+               let res = getId(i).value;
+               array.push(parseInt(res));
+
+           }
+        //    console.log(array);
+
+           array.sort((a, b) => b - a);
+           document.getElementById('result').innerText = ` Array sort in descending order: {${array}} `;
+       })
+
+    </script>
+</body>
+
+</html>

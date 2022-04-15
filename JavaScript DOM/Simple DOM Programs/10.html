@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <input type="number" name="" id="number">
+        <button id="submit">Submit</button>
+        <h2 id="result" style="color: red;"></h2>
+
+        <script>
+            document.getElementById('submit').addEventListener('click',()=>{
+                const number = document.getElementById('number').value;
+                const result = document.getElementById('result');
+                if(number === ''){
+                     result.innerText = 'Input filed is empty';
+                }
+                else if(number >= 50){
+                    result.innerText = 'You are allowed';
+                }
+
+                else if(number < 50){
+                    result.innerText = 'You are not allowed';
+                }
+                else{
+                    result.innerText = '';
+                }
+
+            })
+        </script>
+    </body>
+</html>

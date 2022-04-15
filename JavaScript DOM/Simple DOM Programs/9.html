@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <input id="age" type="text" placeholder="Enter your age">
+        <button id="btn">Result</button>
+        <script>
+            document.getElementById('btn').addEventListener('click',()=>{
+                const age = document.getElementById('age').value;
+                if(age < 18){
+                    alert('Age must be grater than or equal to 18')
+                }
+            })
+        </script>
+    </body>
+</html>

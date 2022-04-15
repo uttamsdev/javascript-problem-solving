@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <style>
+        .input-field {
+            height: 45px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div style="display: flex;flex-direction: column; width: 700px;">
+            <label for="">Enter number of input: </label>
+            <input style="height:45px; margin-bottom: 10px;" id="num" type="number"
+                placeholder="Enter number of inputs">
+
+            <div id="inputs" style="display: flex; flex-direction: column;">
+
+            </div>
+            <button id="max-min" style="height: 35px;margin-top: 20px;">Find max and min number</button>
+            <h1 id="result" style="color: red;"></h1>
+        </div>
+    </center>
+    <script>
+        document.getElementById('num').addEventListener('keyup', () => {
+            const value = document.getElementById('num').value;
+            if (value <= 0) {
+                document.location.reload(true);
+            }
+            const result = document.getElementById('inputs');
+            for (let i = 1; i <= value; i++) {
+                const input = document.createElement('input');
+                input.setAttribute('class', 'input-field');
+                result.appendChild(input);
+            }
+        })
+
+        const array = [];
+        document.getElementById('max-min').addEventListener('click', () => {
+            const value = document.getElementById('num').value;
+            for (let i = 0; i < value; i++) {
+                const result = document.getElementsByClassName('input-field')[i].value;
+                array.push(parseInt(result));
+
+            }
+            const maxNumber = Math.max(...array);
+            const minNumber = Math.min(...array);
+
+            document.getElementById('result').innerHTML = `Maximum number is: ${maxNumber}  <br>   Minimum number is: ${minNumber}`;
+        })
+    </script>
+</body>
+
+</html>
